@@ -25,12 +25,13 @@
 # What does: 11 + 1 / 6  evaluate to ?
 
 # Solution:
+11 + 1 / 6
 
 
 # Calculate 10 plus 2 all divided by 3 and then squared
 
 # Solution:
-
+( 10 / 2 ) 3
 
 
 
@@ -177,11 +178,14 @@ round(digits = 2, x = 3.14159)
 # what does the function called log10() do ?  Can you test it ?
 #
 # Answer:
-
+log10(10)
+help(log10)
+log10(100)
 
 
 #
 # Topic: Vectors and Data Types
+#
 # Presented by: Richard Miller
 
 # Combine some values in a vector
