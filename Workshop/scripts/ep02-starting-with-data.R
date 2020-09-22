@@ -195,31 +195,51 @@ as.character(year)
 as.numeric( as.character(year) )
 
 # so does our survey data have any factors
+str(surveys)
 
 
 #
 # Topic:  Dealing with Dates
 #
 
+
 # R has a whole library for dealing with dates ...
+library(lubridate)
 
+my_date <- ymd("2015-01-01")
+class(my_date)
 
+# date: 7-16-1977
 
 # R can concatenated things together using paste()
+paste("abc", "123", "xyz", sep = "-")
+my_date <- ymd( paste("2015", "01", "26", sep = "-") )
+class(my_date)
 
 
 # 'sep' indicates the character to use to separate each component
 
 
 # paste() also works for entire columns
+surveys$date <- ymd( paste( surveys$year, 
+                            surveys$month, 
+                            surveys$day, sep = "-") )
 
 
 # let's save the dates in a new column of our dataframe surveys$date 
 
 
-# and ask summary() to summarise 
+# and ask summary() to summarise
+summary(surveys)
 
 
 # but what about the "Warning: 129 failed to parse"
+# some date cannot be converted to date - because some months don't have 31 days
 
 
+summary(surveys$date)
+missing_date <- surveys[ is.na(surveys$date), "date" ]
+missing_date
+
+surveys[ is.na(surveys$date), c("record_id", "year", "month", "day") ]
+summary(missing_date)
